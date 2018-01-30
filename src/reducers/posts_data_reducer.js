@@ -1,4 +1,4 @@
-import { FETCH_POST } from "./../actions/types";
+import { FETCH_POST, FETCH_SINGLE_POST, DELETE_POST } from "./../actions/types";
 
 const initialState = {
   data: []
@@ -11,6 +11,13 @@ export default function postsDataReducer(state = initialState, action) {
         ...state,
         data: action.payload
       };
+    case FETCH_SINGLE_POST:
+      return {
+        ...state,
+        [action.payload.id]: action.payload
+      };
+    case DELETE_POST:
+      
     default:
       return state;
   }

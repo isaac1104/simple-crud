@@ -1,30 +1,11 @@
 import React, { Component } from "react";
+import formField from "./form_field";
 import { Field, reduxForm } from "redux-form";
 import { Link } from "react-router-dom";
 import { connect } from "react-redux";
 import * as actions from "./../actions";
 
 class PostNew extends Component {
-
-  formField = field => {
-    const { meta: { touched, error } } = field;
-    const className = `form-group ${touched && error ? "text-danger" : ""}`;
-
-    return (
-      <div className={className}>
-        <label>{field.label}</label>
-        <input
-          className="form-control"
-          type="text" {...field.input}
-          autoComplete="off"
-        />
-        <div className="text-help">
-          {touched ? error : ""}
-        </div>
-      </div>
-    );
-  }
-
 
   formSubmit = (values) => {
     this.props.createPost(values, () => {
@@ -41,17 +22,17 @@ class PostNew extends Component {
         <Field
           label="Title"
           name="title"
-          component={this.formField}
+          component={formField}
         />
         <Field
           label="Categories"
           name="categories"
-          component={this.formField}
+          component={formField}
         />
         <Field
           label="Content"
           name="content"
-          component={this.formField}
+          component={formField}
         />
         <button type="submit" className="btn btn-primary">Submit</button>
         <Link to="/" className="btn btn-danger" style={{marginLeft: "10px"}}>Cancel</Link>
