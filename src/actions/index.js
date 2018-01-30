@@ -20,7 +20,7 @@ export const fetchSinglePost = id => async dispatch => {
 }
 
 export const deletePost = (id, callback) => async dispatch => {
-  const request = await axios.delete(`http://reduxblog.herokuapp.com/api/posts/${id}?key=ISAAC1104`);
+  await axios.delete(`http://reduxblog.herokuapp.com/api/posts/${id}?key=ISAAC1104`);
   callback();
   dispatch({ type: DELETE_POST, payload: id });
 }

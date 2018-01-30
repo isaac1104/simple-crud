@@ -28,7 +28,8 @@ class PostsShow extends Component {
       <div>
         <Link to="/" className="btn btn-info">Back</Link>
         <button
-          className="btn btn-danger pull-right"
+          className="btn btn-danger"
+          style={{marginLeft: "10px"}}
           onClick={() => this.handleDelete()}
         >
           Delete Post
