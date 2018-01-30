@@ -10,8 +10,8 @@ class PostsIndex extends Component {
   }
 
   renderPosts = () => {
-    if (this.props.posts[0]) {
-      return this.props.posts[0].map(post => {
+    if (this.props.posts) {
+      return this.props.posts.map(post => {
         return (
           <li className="list-group-item" key={post.id}>
             {post.title}
@@ -26,7 +26,7 @@ class PostsIndex extends Component {
   }
 
   render() {
-
+    console.log(this.props.posts);
     return (
       <div>
         <div className="text-right">
@@ -43,7 +43,7 @@ class PostsIndex extends Component {
 
 function mapStateToProps(state) {
   return {
-    posts: state.posts
+    posts: state.posts.data
   }
 }
 

@@ -26,8 +26,10 @@ class PostNew extends Component {
   }
 
 
-  formSubmit = (value) => {
-    console.log(value);
+  formSubmit = (values) => {
+    this.props.createPost(values, () => {
+      this.props.history.push("/");
+    });
   }
 
   render() {
@@ -42,8 +44,8 @@ class PostNew extends Component {
           component={this.formField}
         />
         <Field
-          label="Category"
-          name="category"
+          label="Categories"
+          name="categories"
           component={this.formField}
         />
         <Field
@@ -63,8 +65,8 @@ function validate(values) {
   if (!values.title) {
     errors.title = "Enter a title";
   }
-  if (!values.category) {
-    errors.category = "Enter a category";
+  if (!values.categories) {
+    errors.categories = "Enter a category";
   }
   if (!values.content) {
     errors.content = "Enter some content please";
